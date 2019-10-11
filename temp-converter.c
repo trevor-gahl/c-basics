@@ -6,7 +6,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-
+#include <assert.h>
 
 float c_f_conv(float cel)
 {
@@ -22,13 +22,22 @@ int main(int argc, char *argv[])
 	// arg 3 is step size
 	//printf("Enter lower limit: ");
 	//scanf("%d",&lower); // scanf requires pointer to memory location to place data
-	
+
+
+	// Verify supplied arguments to prevent seg faults
+	printf("Number of arguments: %d\n",argc);
+
+	if(argc<4){
+		perror("Not enough arguments");
+		exit(0);
+	}
 	// Convert arguments to ints
 	float lower = atof(argv[1]);
 	float upper = atof(argv[2]);
 	float step = atof(argv[3]);
-	//printf("\n%d",lower);
 	
+	assert(lower<upper);
+	assert(step<(upper-lower));	
 
 	float dif = upper - lower;
 	float fahr;
