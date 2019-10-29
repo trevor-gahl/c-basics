@@ -1,0 +1,22 @@
+When using pthreads it's important to make the "thread" function using a pointer system. 
+
+ie:
+void *inc_x(void *x_void_ptr)
+
+The spawned thread requires a function pointer to be passed in since a new thread will need to know where to look for the desired function.
+
+pthread_create() is the function which creates the new thread. 4 parameters are required to be passed in.
+
+1: pthread_t variable.
+	-> This is essentially an integer that contains the information on which thread value is being interacted with.
+
+2: flags.
+	-> For most cases this is going to be NULL which indicates to use the defaults.
+
+3: function call.
+	-> Indicates which function will be executed on the newly created thread.
+
+4: function call arguments.
+	-> Passes the arguments required for the thread function to the new thread.
+
+pthread_join() is the function that holds the processor and waits for the child thread to finish. Requires the thread variable and an attribute value to be passed in.
