@@ -1,0 +1,24 @@
+LIST_INIT
+    - initializes a linked list
+        - sets the size to 0
+        - sets destroy to destroy
+        - sets head and tail pointers to NULL
+
+    - The main structure of the list is there but nothing
+      is inserted. The absolute barebone linked list
+
+LIST_DESTROY
+    - destroys a linked list
+        - This is primarily done by removing all the items from the list
+
+LIST_INS_NEXT
+    - inserts an element into the linked list after a specified element. 
+      Sets the new element to point towards the data passed in by the function
+      caller.
+
+    - Steps to insert a new element
+        - Set next pointer in new element to point towards the element which will
+          follow
+        - Set next pointer of preceeding element to point towards new element
+
+
